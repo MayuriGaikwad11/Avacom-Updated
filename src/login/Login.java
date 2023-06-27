@@ -155,9 +155,13 @@ public class Login
 			{
 				ans1 = getAnswerDept(que1);						//Storing the answer in ans variable.
 			}
-			else if(method.equalsIgnoreCase("Implementation") )
+		/*	else if(method.equalsIgnoreCase("Implementation") )
 			{
 				ans1 = getAnswerDept(que1);						//Storing the answer in ans variable.
+			}*/
+			else if(method.equalsIgnoreCase("Implementation") )
+			{
+				ans1 = "123";						//Storing the answer in ans variable.
 			}
 			else if(method.equalsIgnoreCase("richa") )
 			{
@@ -233,9 +237,13 @@ public class Login
 			{
 				ans2 = getAnswerDept(que2);						//Storing the answer in ans variable.
 			}
-			else if(method.equalsIgnoreCase("Implementation") )
+		/*	else if(method.equalsIgnoreCase("Implementation") )
 			{
 				ans2 = getAnswerDept(que2);						//Storing the answer in ans variable.
+			}*/
+			else if(method.equalsIgnoreCase("Implementation") )
+			{
+				ans2 = "123";					//Storing the answer in ans variable.
 			}
 			else if(method.equalsIgnoreCase("richa") )
 			{

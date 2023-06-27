@@ -374,8 +374,8 @@ public class CompanyPOM {
 	
 	public static WebElement  User(WebDriver driver)		//Method for closing Message Popup
 	{
-		admin = driver.findElement(By.xpath("//*[@id='CMPMenuBar:submenu:12']/li[2]/a"));
-		return admin;
+		admin = driver.findElement(By.xpath("//*[@id='CMPMenuBar:submenu:15']/li[2]/a"));
+		return admin;                        
 	}
 	
 	public static WebElement  AddNewUser(WebDriver driver)		//Method for closing Message Popup

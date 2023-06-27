@@ -282,29 +282,34 @@ public class DeptCountPOM {
 		if(risk.equalsIgnoreCase("Critical"))
 		{
 			CFOcountPOM.readCritical(driver).click();					//Clicking on Critical value of Pie Chart of 'Not Completed'.
+			Thread.sleep(5000);
 		}
 		else if(risk.equalsIgnoreCase("High"))
 		{
 			CFOcountPOM.readHigh(driver).click();						//Clicking on High value of Pie Chart of 'Not Completed'.
+			Thread.sleep(5000);
 		}
 		else if(risk.equalsIgnoreCase("Medium"))
 		{
 			CFOcountPOM.readMedium(driver).click();						//Clicking on Medium value of Pie Chart of 'Not Completed'.
+			Thread.sleep(5000);
 		}
 		else if(risk.equalsIgnoreCase("Low"))
 		{
 			CFOcountPOM.readLow(driver).click();						//Clicking on Low value of Pie Chart of 'Not Completed'.
+			Thread.sleep(5000);
 		}
 		
 		WebDriverWait wait = new WebDriverWait(driver,(50));
 		
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
-		Thread.sleep(8000);
+		Thread.sleep(10000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,300)");	
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
 		String s = CFOcountPOM.readTotalItemsD(driver).getText();
+		Thread.sleep(10000);
 		if(!s.equalsIgnoreCase("No items to display")) {
 			Thread.sleep(5000);
 		try
@@ -322,7 +327,7 @@ public class DeptCountPOM {
 			test.log(LogStatus.PASS, "Excel file Export Successfully");
 			Thread.sleep(3000);
 			
-			 By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[19]/a");
+			 By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[20]/a");
 			
 				wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 				Thread.sleep(4000);
@@ -1440,7 +1445,7 @@ Thread.sleep(5000);
 			test.log(LogStatus.PASS, "Excel file Export Successfully");
 			Thread.sleep(3000);
 			
-  By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[18]/a");
+  By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[19]/a");
 
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(4000);

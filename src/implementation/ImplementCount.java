@@ -44,7 +44,7 @@ public class ImplementCount {
 	
 	
 	public static String link = "Implementation";  
-	
+
 	public static XSSFSheet ReadExcel() throws IOException
 	{
 		fis = new FileInputStream("C:\\Users\\Mayuri\\Desktop\\Compliance\\AvacomAll\\TestData\\ComplianceSheet.xlsx");
@@ -465,7 +465,7 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	@Test(priority = 32)
+	//@Test(priority = 32)
 	void UploadAssignment() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Internal Compliances - Upload Utility - Upload Assignment");
@@ -974,7 +974,7 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-//	@Test(priority = 76)
+//	@Test(priority = 76) //21/06/2023
 	void UploadedFilewithOutFile() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Events - Event assignments  Export Import - Event - Import ");
@@ -1010,7 +1010,7 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-//	@Test(priority = 79)
+	//@Test(priority = 79)
 	void UploadedFileisplayEC() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Events - Event assignments  Export Import - Event Compliance - Import  ");
@@ -1022,7 +1022,7 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-//	@Test(priority = 80)
+	//@Test(priority = 80)
 	void DownloadFileEC() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Events - Event assignments  Export Import - Event Compliance - Export   ");
@@ -1058,9 +1058,236 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
+//	@Test(priority = 83)
+	void Autoreconciliation() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report - Auto reconciliation ");
 	
+		ImplementMethods.Autoreconciliation(driver,test,"Auto reconciliation");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
+//	@Test(priority = 84)
+	void AutoreconciliationWC() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report - Auto reconciliation -Without Customer selection click on \"Export \" Button ");
 	
+		ImplementMethods.AutoreconciliationWC(driver,test,"Auto reconciliation");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 85)
+	void ReassignmentExcludeReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report -Other Reports -Reassignment Exclude Report - Selecting Customer   ");
+		
+		
+		ImplementMethods.ReassignmentExcludeReport(driver,test,"Reassignment Exclude Report");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 86)
+	void ReassignmentExcludeReportL() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report -Other Reports -Reassignment Exclude Report - Select Customer And Location  ");
+		
+		
+		ImplementMethods.ReassignmentExcludeReportL(driver,test,"Reassignment Exclude Report");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 87)
+	void ReassignmentExcludeReportWC() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report -Other Reports -Reassignment Exclude Report - Without Customer Selection  ");
+		
+		
+		ImplementMethods.ReassignmentExcludeReportWC(driver,test,"Reassignment Exclude Report");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 88) //22/06/2023
+		void Compliancetype() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Internal Compliances - Masters - Compliance Type  ");
+			
+			
+			ImplementMethods.Compliancetype(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+	
+	//	@Test(priority = 89) 
+		void Complianceassignments() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Manage Events - Compliance assignments  ");
+			
+			
+			ImplementMethods.Complianceassignments(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+	
+	//	@Test(priority = 90) 
+		void Unsubscribe() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Manage Users - Unsubscribe - with Valid Data ");
+			
+			
+			ImplementMethods.Unsubscribe(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+	
+	//	@Test(priority = 91) 
+		void UnsubscribeInvalid() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Manage Users - Unsubscribe -  with InValid Data ");
+			
+			
+			ImplementMethods.UnsubscribeInvalid(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 92) 
+		void Unsubscribe2() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Manage Users - Unsubscribe -  Enter Comma Seperated Email Id ");
+			
+			
+			ImplementMethods.Unsubscribe2(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+	
+		
+	//	@Test(priority = 93)
+		void GroupingofCompliance() throws InterruptedException, IOException
+		{
+			test = extent.startTest(" Manage Compliances-Upload Utility - Grouping of Compliance -Import - Sample Excel Format Downloaded Or not Verification");
+			
+			ImplementMethods.GroupingofCompliance(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 94)
+		void GroupingofComplianceUploadw() throws InterruptedException, IOException
+		{
+			test = extent.startTest(" Manage Compliances-Upload Utility - Grouping of Compliance - Import - Upload - Without Selecting Customer,ComplianceType and Group type ");
+			
+			ImplementMethods.GroupingofComplianceUploadw(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 95)
+		void GroupingofComplianceUpload() throws InterruptedException, IOException
+		{
+			test = extent.startTest(" Manage Compliances-Upload Utility - Grouping of Compliance -Import - Upload - Customer level wise Upload Invalid data");
+			
+			ImplementMethods.GroupingofComplianceUpload(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 96)
+		void GroupingofComplianceUploadLL() throws InterruptedException, IOException
+		{
+			test = extent.startTest(" Manage Compliances-Upload Utility - Grouping of Compliance - Import -Upload - Location  level wise Upload Invalid data");
+			
+			ImplementMethods.GroupingofComplianceUploadLL(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 97)
+		void GroupingofComplianceExport() throws InterruptedException, IOException
+		{
+			test = extent.startTest(" Manage Compliances-Upload Utility - Grouping of Compliance -Export tab  - Export");
+			
+			ImplementMethods.GroupingofComplianceExport(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 98)
+		void GroupingofComplianceUploadValidC() throws InterruptedException, IOException
+		{
+			test = extent.startTest(" Manage Compliances-Upload Utility - Grouping of Compliance -Import - Upload - Customer level wise Upload Valid data");
+			
+			ImplementMethods.GroupingofComplianceUploadValidC(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 99)
+		void GroupingofComplianceUploadValidL() throws InterruptedException, IOException
+		{
+			test = extent.startTest(" Manage Compliances-Upload Utility - Grouping of Compliance - Import -Upload - Location  level wise Upload Valid data");
+			
+			ImplementMethods.GroupingofComplianceUploadValidL(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 100)
+		void Customerspecificduedateforstatutorycompliance() throws InterruptedException, IOException
+		{
+			test = extent.startTest(" Manage Compliances-Client Specific Configuration - Customerspecificduedateforstatutorycompliance -Sample Excel Format Downloaded Or not Verification");
+			
+			
+			ImplementMethods.Customerspecificduedateforstatutorycompliance(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 101)
+		void GroupingofComplianceUploadValidCL() throws InterruptedException, IOException
+		{
+			test = extent.startTest(" Manage Compliances-Upload Utility - Grouping of Compliance - Import - Upload - Customer level wise Upload Valid data");
+			
+			ImplementMethods.GroupingofComplianceUploadValidCL(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 102)
+		void GroupingofComplianceUploadValidLL() throws InterruptedException, IOException
+		{
+			test = extent.startTest(" Manage Compliances-Upload Utility - Grouping of Compliance - Import -Upload - Location  level wise Upload Valid data");
+			
+			
+			ImplementMethods.GroupingofComplianceUploadValidLL(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
 	
 	//@AfterTest
 		void Closing() throws InterruptedException

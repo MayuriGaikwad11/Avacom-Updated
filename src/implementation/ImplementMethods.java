@@ -4894,31 +4894,7 @@ test.log(LogStatus.PASS, Msg1);
 		}
 	}
 	
-	public static void Complianceassignments(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
-			throws InterruptedException, IOException {
-		Actions action = new Actions(driver);
-		WebDriverWait wait = new WebDriverWait(driver, (40));
-		Thread.sleep(3000);
-
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[5]"))); 
-
-		action.moveToElement(ImplementPOM.ManageEvents(driver)).click().build().perform();
-
-		Thread.sleep(1000);
-		ImplementPOM.Complianceassignments(driver).click();
-		Thread.sleep(4000);
-		
-		ImplementPOM.CustomerAE(driver).click();
-		Thread.sleep(500);
-		ImplementPOM.ABCDPvtLtdEA(driver).click();
-		Thread.sleep(4000);
-		ImplementPOM.SelectLocationdea(driver).click();
-		Thread.sleep(500);
-		ImplementPOM.SelectLocationdea(driver).click();
-		Thread.sleep(1000);
-		ImplementPOM.SelectLocationdea(driver).click();
-		Thread.sleep(4000);
-	}
+	
 	
 	public static void Eventfrequencymapping(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
@@ -4930,10 +4906,10 @@ test.log(LogStatus.PASS, Msg1);
 
 		action.moveToElement(ImplementPOM.ManageEvents(driver)).click().build().perform();
 
-		Thread.sleep(1000);
+		Thread.sleep(1000);//*[@id="CMPMenuBar"]/ul/li[5]
 		ImplementPOM.Eventfrequencymapping(driver).click();
 		Thread.sleep(4000);
-		ImplementPOM.AddNewEFM(driver).click();
+	/*	ImplementPOM.AddNewEFM(driver).click();
 		Thread.sleep(4000);
 		ImplementPOM.CustomerEFM(driver).click();
 		Thread.sleep(500);
@@ -5021,7 +4997,7 @@ test.log(LogStatus.PASS, Msg1);
 		String Msg7 = ImplementPOM.UploadMsgEFM(driver).getText();
 
 		test.log(LogStatus.PASS, " Message displayed -:- " + Msg7);
-		Thread.sleep(2000);
+		Thread.sleep(2000);*/
 		//---------------------Sample Format------------------------
 		//	Thread.sleep(3000);
 			File dir = new File("C:\\Users\\Mayuri\\Downloads");
@@ -5430,21 +5406,834 @@ test.log(LogStatus.PASS, Msg1);
 		      Thread.sleep(3000);
 	}
 	
+	public static void Autoreconciliation(WebDriver driver, ExtentTest test, String report)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[4]"))); 
+																												
+
+		action.moveToElement(ImplementPOM.ClickReport(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.Autoreconciliation(driver).click();
+		Thread.sleep(3000);
+		
+		ImplementPOM.SelectCustomerARR(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.SelectBitademopune(driver).click();
+		Thread.sleep(7000);
+		File dir = new File("C:\\Users\\Mayuri\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(500);
+		ImplementPOM.ExporttoExcel(driver).click(); // Exporting (Downloading) file
+
+		Thread.sleep(10000);// C://Users//jiya//Downloads//
+		File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+		Thread.sleep(3000);
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS, report + " : - customer wise report  downloaded.");
+		} else {
+			test.log(LogStatus.FAIL, report + ": -  File does not downloaded.");
+		}
+
+	}
+	
+	public static void AutoreconciliationWC(WebDriver driver, ExtentTest test, String report)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[4]"))); 
+																												
+
+		action.moveToElement(ImplementPOM.ClickReport(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.Autoreconciliation(driver).click();
+		Thread.sleep(5000);
+		
+		
+		ImplementPOM.ExporttoExcel(driver).click(); // Exporting (Downloading) file
+		Thread.sleep(3000);
+		String Msg =	ImplementPOM.InvalidMsg(driver).getText();
+	  	 Thread.sleep(8000);
+	  	test.log(LogStatus.PASS,  "   Validation Msg displayed: -"+Msg);
+	  
+	  
+	      Thread.sleep(3000);
+
+	}
 	
 	
+	public static void ReassignmentExcludeReport(WebDriver driver, ExtentTest test, String report)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[4]"))); 
+																												
+
+		action.moveToElement(ImplementPOM.ClickReport(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.OtherReports(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.ReassignmentExcludeReport(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.SelectCustomerRER(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.SelectBitademopune(driver).click();
+		Thread.sleep(7000);
+		File dir = new File("C:\\Users\\Mayuri\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(500);
+		ImplementPOM.ExporttoExcelRER(driver).click(); // Exporting (Downloading) file
+
+		Thread.sleep(10000);// C://Users//jiya//Downloads//
+		File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+		Thread.sleep(5000);
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(5000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS, report + " :- Customer Selection Wise Reassignment Report  downloaded.");
+		} else {
+			test.log(LogStatus.FAIL, report + " :- File does not downloaded.");
+		}
+
+	}
+	
+	public static void ReassignmentExcludeReportL(WebDriver driver, ExtentTest test, String report)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[4]"))); 
+																												
+
+		action.moveToElement(ImplementPOM.ClickReport(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.OtherReports(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.ReassignmentExcludeReport(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.SelectCustomerRER(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.SelectBitademopune(driver).click();
+		Thread.sleep(7000);
+		
+		ImplementPOM.SelectLocationCA(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.Expand(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.ABitaPharmCompany(driver).click();
+		Thread.sleep(8000);
+		
+		File dir = new File("C:\\Users\\Mayuri\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(500);
+		ImplementPOM.ExporttoExcelRER(driver).click(); // Exporting (Downloading) file
+
+		Thread.sleep(10000);// C://Users//jiya//Downloads//
+		File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+		Thread.sleep(5000);
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(5000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS, report + " :- Customer and Location wise Report should be downloaded.");
+		} else {
+			test.log(LogStatus.FAIL, report + " :- File does not downloaded.");
+		}
+
+	}
 	
 	
+	public static void ReassignmentExcludeReportWC(WebDriver driver, ExtentTest test, String report)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[4]"))); 
+																												
+
+		action.moveToElement(ImplementPOM.ClickReport(driver)).click().build().perform();
+		Thread.sleep(2000);
+		ImplementPOM.OtherReports(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.ReassignmentExcludeReport(driver).click();
+		Thread.sleep(3000);
+		
+		
+		ImplementPOM.ExporttoExcelRER(driver).click(); // Exporting (Downloading) file
+		Thread.sleep(5000);
+		String Msg =	ImplementPOM.InvalidMsg(driver).getText();
+	  	 Thread.sleep(8000);
+	  	test.log(LogStatus.PASS,  "   Validation Msg displayed: -"+Msg);
+	  
+	  
+	      Thread.sleep(3000);
+
+	}
+	
+	public static void Compliancetype(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[3]/a"))); 
+																												
+
+		action.moveToElement(ImplementPOM.InternalCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.Masters(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.Compliancetype(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.SelectCustomerCC(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.SelectBitademopuneCC(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.AddNewCt(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.Customer(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Bitademopune(driver).click();
+		Thread.sleep(2000);
+		
+		sheet = workbook.getSheetAt(13); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+		int row = 0;
+		Thread.sleep(500);
+		Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+		Cell c1 = null;
+		row0 = sheet.getRow(37);
+		c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+		ImplementPOM.name(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+		Thread.sleep(2000);
+		row0 = sheet.getRow(38);
+		c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+		ImplementPOM.Description(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+		Thread.sleep(2000);
+		ImplementPOM.Save(driver).click();
+		Thread.sleep(2000);
+		test.log(LogStatus.PASS, " Compliance Type:-Add successfully.");
+		Thread.sleep(2000);
+		row0 = sheet.getRow(37);
+		c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+		ImplementPOM.FilterM(driver).sendKeys(c1.getStringCellValue(),Keys.ENTER); // Writing Task title
+		Thread.sleep(2000);
+	/*	String textfilter =ImplementPOM.FilterM(driver).getText();
+		String text=ImplementPOM.NameCheck(driver).getText();
+		if(text.equalsIgnoreCase(textfilter)){
+			
+			test.log(LogStatus.PASS, " Compliance Category:-Filter Working  successfully.");
+			
+		}else
+		{
+			test.log(LogStatus.FAIL, " Compliance Category:-Filter not Working  Properly.");
+		}*/
+		Thread.sleep(2000);
+		ImplementPOM.EditComplianceType(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.Description(driver).clear();
+		Thread.sleep(1000);
+		row0 = sheet.getRow(39);
+		c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+		ImplementPOM.Description(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+		Thread.sleep(3000);
+
+	Thread.sleep(3000);
+		ImplementPOM.Save(driver).click();
+	Thread.sleep(2000);
+
+			
+			test.log(LogStatus.PASS, " Compliance Type:-Update successfully.");
+			
+		
+       Thread.sleep(5000);
+       ImplementPOM.DeleteComplianceType(driver).click();
+       Thread.sleep(2000);
+   	String MAInCheckListMsg = driver.switchTo().alert().getText();
+	Thread.sleep(2000);
+	driver.switchTo().alert().accept();
+	Thread.sleep(2000);
+
+		test.log(LogStatus.PASS, " Deleted Message displayed - " + MAInCheckListMsg);
+	
+
+	}
 	
 	
+	public static void Complianceassignments(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[5]"))); 
+
+		action.moveToElement(ImplementPOM.ManageEvents(driver)).click().build().perform();
+
+		Thread.sleep(1000);
+		ImplementPOM.Complianceassignments(driver).click();
+		Thread.sleep(7000);
+		
+		ImplementPOM.CustomerAE1(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.ABCDPvtLtdEA1(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.SelectLocationdea(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.ExpandABCDPvtLtd1(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ABCDAurangabadPvt(driver).click();
+		Thread.sleep(6000);
+		
+		ImplementPOM.SelectPerformer1(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.Performer2User(driver).click();
+		Thread.sleep(7000);
+		ImplementPOM.SelectReviewer1(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ReviewerUser1(driver).click();
+		Thread.sleep(7000);
+		
+		ImplementPOM.ComplianceCategory1(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ClientSpecific2(driver).click();
+		Thread.sleep(7000);
+		
+		ImplementPOM.StartDate1(driver).sendKeys("01-06-2023");
+		Thread.sleep(7000);
+		ImplementPOM.CheckBox(driver).click();
+		Thread.sleep(3000);
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,300)");	
+		Thread.sleep(5000);
+		
+		ImplementPOM.SaveCA(driver).click();
+		Thread.sleep(3000);
+		
+		
+		driver.switchTo().alert().accept();
+		
+		Thread.sleep(7000);
+		
+		String msg=driver.switchTo().alert().getText();
+		Thread.sleep(2000);
+		test.log(LogStatus.PASS, " Message Displayed :-"+msg);
+	driver.switchTo().alert().accept();
+		
+		Thread.sleep(5000);
+	}
+	
+	public static void Unsubscribe(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[1]"))); 
+
+		action.moveToElement(ImplementPOM.clickManageUser(driver)).click().build().perform();
+
+		Thread.sleep(1000);
+		ImplementPOM.Unsubscribe(driver).click();
+		Thread.sleep(7000);
+		
+		ImplementPOM.EnterEmail(driver).sendKeys("abcd@gmail.com");
+		Thread.sleep(3000);
+		ImplementPOM.ClickUnsubscribe(driver).click();
+		Thread.sleep(5000);
+		
+		String msg=driver.switchTo().alert().getText();
+		Thread.sleep(2000);
+		test.log(LogStatus.PASS, " Message Displayed :-"+msg);
+	driver.switchTo().alert().accept();
+		
+		Thread.sleep(5000);
+	}
+	
+	public static void UnsubscribeInvalid(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[1]"))); 
+
+		action.moveToElement(ImplementPOM.clickManageUser(driver)).click().build().perform();
+
+		Thread.sleep(1000);
+		ImplementPOM.Unsubscribe(driver).click();
+		Thread.sleep(7000);
+		
+		ImplementPOM.EnterEmail(driver).sendKeys("absd");
+		Thread.sleep(3000);
+		ImplementPOM.ClickUnsubscribe(driver).click();
+		Thread.sleep(5000);
+		
+		String msg=driver.switchTo().alert().getText();
+		Thread.sleep(2000);
+		test.log(LogStatus.PASS, " Message Displayed :-"+msg);
+	driver.switchTo().alert().accept();
+		
+		Thread.sleep(5000);
+	}
+	
+	public static void Unsubscribe2(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[1]"))); 
+
+		action.moveToElement(ImplementPOM.clickManageUser(driver)).click().build().perform();
+
+		Thread.sleep(1000);
+		ImplementPOM.Unsubscribe(driver).click();
+		Thread.sleep(7000);
+		
+		ImplementPOM.EnterEmail(driver).sendKeys("abcd@gmail.com,cd@gmail.com");
+		Thread.sleep(3000);
+		ImplementPOM.ClickUnsubscribe(driver).click();
+		Thread.sleep(5000);
+		
+		String msg=driver.switchTo().alert().getText();
+		Thread.sleep(2000);
+		test.log(LogStatus.PASS, " Message Displayed :-"+msg);
+	driver.switchTo().alert().accept();
+		
+		Thread.sleep(5000);
+	}
 	
 	
+	public static void GroupingofCompliance(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.UploadUtilityMC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.GroupingofCompliance(driver).click();
+		Thread.sleep(3000);
+		Thread.sleep(3000);
+		ImplementPOM.ClickImport(driver).click();
+		Thread.sleep(3000);
+		File dir = new File("C:\\Users\\Mayuri\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(1000);
+		ImplementPOM.DownloadSampleExcelFormat(driver).click(); // Exporting (Downloading) file
+
+		Thread.sleep(3000);// C://Users//jiya//Downloads//
+		File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");
+		} else {
+			test.log(LogStatus.FAIL,  " :- File does not downloaded.");
+		}
+		
+		
+		Thread.sleep(3000);
+	}
+	
+	public static void GroupingofComplianceUpload(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.UploadUtilityMC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.GroupingofCompliance(driver).click();
+		Thread.sleep(3000);
+		Thread.sleep(3000);
+		ImplementPOM.ClickImport(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.SelectCustomerGC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ABCDPvtLtdGC(driver).click();
+		Thread.sleep(3000);
+		
+		ImplementPOM.SelectComplianceType1(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.FunctionBased(driver).click();
+		Thread.sleep(3000);
+		
+		ImplementPOM.SelectGroupType(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.CustomerLevel(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.UploadFilegc(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\Compliance_Grouping_ExcelSampleFromat.xlsx");
+		Thread.sleep(3000);
+		ImplementPOM.ClickUpload(driver).click();
+		Thread.sleep(3000);
+		String Msg =	ImplementPOM.ValMsg(driver).getText();
+	  	 Thread.sleep(8000);
+	  	test.log(LogStatus.PASS,  "   Validation Msg displayed: -"+Msg);
+	  
+		Thread.sleep(3000);
+	}
+	
+	public static void GroupingofComplianceUploadw(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.UploadUtilityMC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.GroupingofCompliance(driver).click();
+		Thread.sleep(3000);
+		Thread.sleep(3000);
+		ImplementPOM.ClickImport(driver).click();
+		Thread.sleep(3000);
+		
+		ImplementPOM.UploadFilegc(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\Compliance_Grouping_ExcelSampleFromat.xlsx");
+		Thread.sleep(3000);
+		ImplementPOM.ClickUpload(driver).click();
+		Thread.sleep(3000);
+		
+		String Msg =	ImplementPOM.ValMsg(driver).getText();
+	  	 Thread.sleep(8000);
+	  	test.log(LogStatus.PASS,  "   Validation Msg displayed: -"+Msg);
+	  
+		
+		Thread.sleep(3000);
+	}
 	
 	
+	public static void GroupingofComplianceUploadLL(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.UploadUtilityMC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.GroupingofCompliance(driver).click();
+		Thread.sleep(3000);
+		Thread.sleep(3000);
+		ImplementPOM.ClickImport(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.SelectCustomerGC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ABCDPvtLtdGC(driver).click();
+		Thread.sleep(3000);
+		
+		ImplementPOM.SelectComplianceType1(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.FunctionBased(driver).click();
+		Thread.sleep(3000);
+		
+		ImplementPOM.SelectGroupType(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.LocationLevel(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.UploadFilegc(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\Compliance_Grouping_ExcelSampleFromat.xlsx");
+		Thread.sleep(3000);
+		ImplementPOM.ClickUpload(driver).click();
+		Thread.sleep(3000);
+		String Msg =	ImplementPOM.ValMsg(driver).getText();
+	  	 Thread.sleep(8000);
+	  	test.log(LogStatus.PASS,  "   Validation Msg displayed: -"+Msg);
+	  
+		Thread.sleep(3000);
+	}
 	
+	public static void GroupingofComplianceExport(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.UploadUtilityMC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.GroupingofCompliance(driver).click();
+		Thread.sleep(3000);
+		Thread.sleep(3000);
+		ImplementPOM.ClickExportGC(driver).click();
+		Thread.sleep(3000);
+		
+		ImplementPOM.SelectCust(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.SelectBitademopune(driver).click();
+		Thread.sleep(3000);
+		
+		File dir = new File("C:\\Users\\Mayuri\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(1000);
+		ImplementPOM.ClickExportImg(driver).click(); // Exporting (Downloading) file
+
+		Thread.sleep(4000);// C://Users//jiya//Downloads//
+		File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS, " Customer wise Grouping of Compliance sheet  downloaded.");
+		} else {
+			test.log(LogStatus.FAIL,  " File does not downloaded.");
+		}
+		
+		
+		Thread.sleep(3000);
+	}
 	
+	public static void GroupingofComplianceUploadValidC(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.UploadUtilityMC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.GroupingofCompliance(driver).click();
+		Thread.sleep(3000);
+		Thread.sleep(3000);
+		ImplementPOM.ClickImport(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.SelectCustomerGC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ABCDPvtLtdGC(driver).click();
+		Thread.sleep(3000);
+		
+		ImplementPOM.SelectComplianceType1(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.FunctionBased(driver).click();
+		Thread.sleep(3000);
+		
+		ImplementPOM.SelectGroupType(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.CustomerLevel(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.UploadFilegc(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\Compliance_Grouping_ExcelSampleFromat (1).xlsx");
+		Thread.sleep(3000);
+		ImplementPOM.ClickUpload(driver).click();
+		Thread.sleep(3000);
+		String Msg =	ImplementPOM.ValidationMsg(driver).getText();
+	  	 Thread.sleep(8000);
+	  	 if(Msg.equalsIgnoreCase("Data uploaded successfully.")) {
+	 	  	test.log(LogStatus.PASS,  " Compliance Type - Function Based :  Message displayed: -"+Msg);
+	 	  	 }else {
+	 	  		test.log(LogStatus.FAIL,  " Compliance Type - Function Based :  Message displayed: -"+Msg);
+	 	  	 }
+	  
+		Thread.sleep(3000);
+	}
 	
+	public static void GroupingofComplianceUploadValidL(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.UploadUtilityMC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.GroupingofCompliance(driver).click();
+		Thread.sleep(3000);
+		Thread.sleep(3000);
+		ImplementPOM.ClickImport(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.SelectCustomerGC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ABCDPvtLtdGC(driver).click();
+		Thread.sleep(3000);
+		
+		ImplementPOM.SelectComplianceType1(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.FunctionBased(driver).click();
+		Thread.sleep(3000);
+		
+		ImplementPOM.SelectGroupType(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.LocationLevel(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.UploadFilegc(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\Compliance_Grouping_ExcelSampleFromat (1).xlsx");
+		Thread.sleep(3000);
+		ImplementPOM.ClickUpload(driver).click();
+		Thread.sleep(6000);
+		String Msg =	ImplementPOM.ValidationMsg(driver).getText();
+	  	 Thread.sleep(8000);
+	  	 if(Msg.equalsIgnoreCase("Data uploaded successfully.")) {
+	 	  	test.log(LogStatus.PASS,  "Compliance Type - Function Based :  Message displayed: -"+Msg);
+	 	  	 }else {
+	 	  		test.log(LogStatus.FAIL,  "Compliance Type - Function Based : Message displayed: -"+Msg);
+	 	  	 }
+	  
+		Thread.sleep(3000);
+	}
 	
+	public static void Customerspecificduedateforstatutorycompliance(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+																										
+  
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.ClientSpecificConfiguration(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.Customerspecificduedateforstatutorycompliance(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.DocumentCustomer(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.customer123Users(driver).click();
+		Thread.sleep(4000);
+		
+		File dir = new File("C:\\Users\\Mayuri\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(1000);
+		ImplementPOM.SampleFormate(driver).click(); // Exporting (Downloading) file
+
+		Thread.sleep(4000);// C://Users//jiya//Downloads//
+		File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS, " Client Based Due Date Link Excel Sample Format  Downloaded.");
+		} else {
+			test.log(LogStatus.FAIL,  " File does not downloaded.");
+		}
+	}
 	
+	public static void GroupingofComplianceUploadValidCL(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.UploadUtilityMC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.GroupingofCompliance(driver).click();
+		Thread.sleep(3000);
+		Thread.sleep(3000);
+		ImplementPOM.ClickImport(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.SelectCustomerGC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ABCDPvtLtdGC(driver).click();
+		Thread.sleep(3000);
+		
+		ImplementPOM.SelectComplianceType1(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.CheckList(driver).click();
+		Thread.sleep(3000);
+		
+		ImplementPOM.SelectGroupType(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.CustomerLevel(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.UploadFilegc(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\Compliance_Grouping_ExcelSampleFromat (2).xlsx");
+		Thread.sleep(3000);
+		ImplementPOM.ClickUpload(driver).click();
+		Thread.sleep(3000);
+		String Msg =	ImplementPOM.ValidationMsg(driver).getText();
+	  	 Thread.sleep(8000);
+	  	 if(Msg.equalsIgnoreCase("Data uploaded successfully.")) {
+	 	  	test.log(LogStatus.PASS,  " Compliance Type - CheckList : Message displayed: -"+Msg);
+	 	  	 }else {
+	 	  		test.log(LogStatus.FAIL,  "Compliance Type - CheckList :   Message displayed: -"+Msg);
+	 	  	 }
+	  
+		Thread.sleep(3000);
+	}
+	
+	public static void GroupingofComplianceUploadValidLL(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.UploadUtilityMC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.GroupingofCompliance(driver).click();
+		Thread.sleep(3000);
+		Thread.sleep(3000);
+		ImplementPOM.ClickImport(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.SelectCustomerGC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ABCDPvtLtdGC(driver).click();
+		Thread.sleep(3000);
+		
+		ImplementPOM.SelectComplianceType1(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.CheckList(driver).click();
+		Thread.sleep(3000);
+		
+		ImplementPOM.SelectGroupType(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.LocationLevel(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.UploadFilegc(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\Compliance_Grouping_ExcelSampleFromat (2).xlsx");
+		Thread.sleep(3000);
+		ImplementPOM.ClickUpload(driver).click();
+		Thread.sleep(6000);
+		String Msg =	ImplementPOM.ValidationMsg(driver).getText();
+	  	 Thread.sleep(8000);
+	  	 if(Msg.equalsIgnoreCase("Data uploaded successfully.")) {
+	 	  	test.log(LogStatus.PASS,  "Compliance Type - CheckList : Message displayed: -"+Msg);
+	 	  	 }else {
+	 	  		test.log(LogStatus.FAIL,  "Compliance Type - CheckList : Message displayed: -"+Msg);
+	 	  	 }
+	  
+		Thread.sleep(3000);
+	}
 	
 	
 

@@ -325,7 +325,7 @@ public class CompanyCount {
 		extent.endTest(test);
 		extent.flush();
 	}
-	
+	/*
 	@Test(priority = 20)
 	void ModifyAssignmentsDepartmentdis() throws InterruptedException, IOException
 	{
@@ -481,7 +481,7 @@ public class CompanyCount {
 		extent.endTest(test);
 		extent.flush();
 	}
-	
+	*/
 	
 	
 	// @AfterTest

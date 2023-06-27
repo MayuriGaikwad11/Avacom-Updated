@@ -2243,7 +2243,7 @@ public class Mgmt {
 	void NotApplicable_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Completion Status- 'Not Applicable' Count Verification");
-	//	test.log(LogStatus.INFO, "Test Initiated");
+	
 		Thread.sleep(800);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,2400)");					//Scrolling down window by 1000 px.
